@@ -38,7 +38,10 @@
     function link (scope, iElement) {
       scope.$watch('active', statusWatcher);
       function statusWatcher (active) {
-        $animate[active ? 'addClass' : 'removeClass'](iElement, 'treasure-overlay-spinner-active');
+          if (active) iElement.addClass('treasure-overlay-spinner-active');
+          else iElement.removeClass('treasure-overlay-spinner-active');
+
+        //$animate[active ? 'addClass' : 'removeClass'](iElement, 'treasure-overlay-spinner-active');
       }
     }
   }
